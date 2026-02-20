@@ -2,20 +2,17 @@ import java.util.*;
 public class PalindromeCheckerapp {
     public static void main (String[] args){
         String word = "madam";
-        Queue<Character> queue = new LinkedList<>();
-        Stack<Character> stack = new Stack<>();
+
+        Deque<Character> deque = new ArrayDeque<>();
 
         for(int i = 0; i < word.length(); i++) {
-            char ch = word.charAt(i);
-            queue.add(ch);   // Enqueue (FIFO)
-            stack.push(ch);  // Push (LIFO)
+            deque.addLast(word.charAt(i));
         }
 
         boolean isPalindrome = true;
 
-        // Step 3: Compare dequeue vs pop
-        while(!queue.isEmpty()) {
-            if(queue.remove() != stack.pop()) {
+        while(deque.size() > 1) {
+            if(deque.removeFirst() != deque.removeLast()) {
                 isPalindrome = false;
                 break;
             }
@@ -26,6 +23,5 @@ public class PalindromeCheckerapp {
         } else {
             System.out.println(word + " is not a palindrome.");
         }
-
     }
 }
