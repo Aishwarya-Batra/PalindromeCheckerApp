@@ -1,17 +1,18 @@
 public class PalindromeCheckerapp {
     public static void main (String[] args){
-        String pal="madam";
-        int n=pal.length();
-        String temp="";
-        for(int i=(n-1);i>=0;i--){
-            temp += pal.charAt(i);
+        String original = "madam";
+        String reversed = "";
+
+        for(int i = original.length() - 1; i >= 0; i--) {
+            reversed = reversed + original.charAt(i);
         }
-        if(temp.equals(pal)){
-            System.out.println("yes 'madam' is palindrome ");
+
+        if(original.equals(reversed)) {
+            System.out.println(original + " is a palindrome.");
+        } else {
+            System.out.println(original + " is not a palindrome.");
         }
-        else{
-            System.out.println("no 'madam' is not palindrome");
-        }
+
 
 
     }
